@@ -1,0 +1,7 @@
+*.log
+Resource/
+*.idea/
+*checkpoints/
+*.rasa
+*.ipynb_checkpoints/
+*Research/

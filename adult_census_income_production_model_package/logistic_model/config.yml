@@ -1,0 +1,181 @@
+# Package Overview
+package_name: logistic_model
+
+# Data Files
+training_data_file: adult.csv
+
+# Variables
+# The variable we are attempting to predict (sale price)
+target: salary
+
+pipeline_name: logistic_model
+pipeline_save_file: logistic_model_output_v
+
+# for meaningful context the columns are renamed
+variables_to_rename:
+  fnlwgt: final_weight
+  education-num: education_num
+  marital-status: marital_status
+  capital-gain: capital_gain
+  capital-loss: capital_loss
+  hours-per-week: hours_per_week
+
+variables_to_trim:
+  - education
+  - marital_status
+  - occupation
+  - relationship
+  - race
+  - sex
+  - country
+  - salary
+
+features:
+  - final_weight
+  - education
+  - marital_status
+  - occupation
+  - relationship
+  - race
+  - sex
+  - capital_gain
+  - capital_loss
+  - hours_per_week
+  - country
+
+# set train/test split
+test_size: 0.3
+
+# to set the random seed
+random_state: 0
+
+alpha: 0.001
+
+# categorical variables with NA in train set
+categorical_vars_with_na_frequent:
+  - occupation
+  - country
+
+categorical_vars_with_na_missing:
+  - education
+  - marital_status
+  - occupation
+  - race
+  - country
+
+# variables to log transform
+numericals_log_vars:
+  - final_weight
+  - hours_per_week
+  - age
+
+binarize_vars:
+  - capital_gain
+  - capital_loss
+
+
+categorical_vars:
+  - education
+  - marital_status
+  - occupation
+  - race
+  - country
+  - relationship
+  - sex
+
+# variables to map
+edu_vars:
+  - education
+
+marital_vars:
+  - marital_status
+
+occupation_vars:
+  - occupation
+
+race_vars:
+  - race
+
+country_vars:
+  - country
+
+relationship_vars:
+  - relationship
+
+sex_vars:
+  - sex
+
+# variable mappings
+edu_mappings:
+  9th: 1
+  11th: 2
+  5th-6th: 3
+  10th: 4
+  7th-8th: 5
+  12th: 6
+  HS-grad: 7
+  Some-college: 8
+  Assoc-acdm: 9
+  Assoc-voc: 10
+  Bachelors: 11
+  Masters: 12
+  Prof-school: 13
+  Doctorate: 14
+  Rare: 0
+  NA: 0
+
+marital_mappings:
+  Never-married: 0
+  Separated: 1
+  Married-spouse-absent: 2
+  Widowed: 3
+  GdDivorced: 4
+  Rare: 5
+  Married-civ-spouse: 6
+
+
+occupation_mappings:
+  Rare: 0
+  NA: 0
+  Other-service: 1
+  Handlers-cleaners: 2
+  No-Occupation: 3
+  Farming-fishing: 4
+  Machine-op-inspct: 5
+  Adm-clerical: 6
+  Transport-moving: 7
+  Craft-repair: 8
+  Sales: 9
+  Tech-support: 10
+  Protective-serv: 11
+  Prof-specialty: 12
+  Exec-managerial: 13
+
+
+relationship_mappings:
+  Own-child: 0
+  NA: 0
+  Other-relative: 1
+  Unmarried: 2
+  Not-in-family: 3
+  Husband: 4
+  Wife: 5
+
+race_mappings:
+  Rare: 0
+  NA: 0
+  Black: 1
+  White: 2
+  Asian-Pac-Islander: 3
+
+sex_mappings:
+  Female: 0
+  Male: 1
+
+country_mappings:
+  Mexico: 0
+  Rare: 1
+  NA: 1
+  United-States: 2
+  Missing: 3
+
